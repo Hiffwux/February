@@ -1,0 +1,156 @@
+[gd_scene load_steps=3 format=3 uid="uid://k04etqtgysnj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gyh0u"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_isxpg"]
+font_size = 32
+
+[node name="MainScene" type="Node"]
+
+[node name="Back" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Back2" type="ColorRect" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.0208333
+anchor_top = 0.888889
+anchor_right = 0.0625
+anchor_bottom = 0.962963
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Back3" type="ColorRect" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.9375
+anchor_top = 0.888889
+anchor_right = 0.979167
+anchor_bottom = 0.962963
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.037037
+anchor_right = 0.667
+anchor_bottom = 0.106333
+offset_left = 0.384003
+offset_right = -0.384033
+offset_bottom = 0.0960007
+metadata/_edit_use_anchors_ = true
+
+[node name="titleMonth" type="Label" parent="title"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FEBRUARY"
+label_settings = SubResource("LabelSettings_gyh0u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="title"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="dayAndTime" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.0374074
+anchor_right = 0.667
+anchor_bottom = 0.106778
+offset_left = 0.384003
+offset_top = -0.240005
+offset_right = -0.384033
+offset_bottom = -0.192001
+metadata/_edit_use_anchors_ = true
+
+[node name="day" type="Label" parent="dayAndTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Day #"
+label_settings = SubResource("LabelSettings_isxpg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="dayAndTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "##:##"
+label_settings = SubResource("LabelSettings_isxpg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="dayAndTime"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="gameButtons" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.0834167
+anchor_top = 0.889
+anchor_right = 0.916917
+anchor_bottom = 0.963
+offset_left = -0.0960083
+offset_top = -0.0720215
+offset_right = -0.288025
+offset_bottom = -0.0240479
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="gameButtons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="menuButtons" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.333333
+anchor_top = 0.185185
+anchor_right = 0.666944
+anchor_bottom = 0.963235
+offset_right = -0.32
+offset_bottom = -0.176003
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="awake" type="Button" parent="menuButtons"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 24
+text = "AWAKE"
+flat = true
+
+[node name="remember" type="Button" parent="menuButtons"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "REMEMBER"
+flat = true
+
+[node name="reflect" type="Button" parent="menuButtons"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "REFLECT"
+flat = true
+
+[node name="intoOblivion" type="Button" parent="menuButtons"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 24
+text = "INTO OBLIVION"
+flat = true

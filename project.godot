@@ -14,6 +14,10 @@ config/name="February"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalStats="*res://globalStats.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

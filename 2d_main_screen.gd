@@ -9,6 +9,10 @@ extends Node
 
 var MinuteValue: int = 0
 var HourValue: int = 0
+var DayValue: int = 0
+
+var TimeElapsed:float = 0.0
+var timeSpeed:float = 60*60
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,8 +23,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	_Time()
-	pass
+	TimeElapsed += delta * timeSpeed
+	#_Time()
+	var time = Time.get_time_dict_from_unix_time(TimeElapsed)
+	Minutes.text = str(time["minute"])
+	Hours.text = str(time["hour"])
 
 
 func _Time():
@@ -33,13 +40,6 @@ func _Time():
 		Hours.text = "0" + var_to_str(HourValue)
 	else:
 		Hours.text = var_to_str(HourValue)
-	
-	if MinuteValue == 60:
-		HourValue += 1
-		MinuteValue = 0
-	
-	if HourValue == 24:
-		HourValue = 0
 
 func _Awake():
 	AwakeButton.visible = false
@@ -49,4 +49,9 @@ func _Awake():
 
 func _Clock_Start():
 	MinuteValue += 1
-	pass # Replace with function body.
+	if MinuteValue == 60:
+		HourValue += 1
+		MinuteValue = 0
+	
+	if HourValue == 24:
+		HourValue = 0

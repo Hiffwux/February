@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3c06tcnoyyp5"]
+[gd_scene load_steps=5 format=3 uid="uid://3c06tcnoyyp5"]
 
 [ext_resource type="PackedScene" uid="uid://bayadxi53duyb" path="res://2d_events.tscn" id="1_5llhr"]
 [ext_resource type="Script" path="res://2d_main_screen.gd" id="1_viecr"]
@@ -8,9 +8,6 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_7qbsi"]
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_a1ok0"]
-font_size = 64
 
 [node name="2DMain" type="Node"]
 script = ExtResource("1_viecr")
@@ -84,9 +81,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.704455
-anchor_top = 0.000428608
+anchor_top = 0.00935718
 anchor_right = 0.840727
-anchor_bottom = 0.428429
+anchor_bottom = 0.437358
 offset_left = 0.0319977
 offset_top = -0.0480042
 offset_right = 0.0639954
@@ -149,20 +146,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 offset_right = 352.0
 offset_bottom = 120.0
-flat = true
-
-[node name="ButtonStart" type="Label" parent="ColorRect/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+theme_override_font_sizes/font_size = 64
 text = "AWAKE"
-label_settings = SubResource("LabelSettings_a1ok0")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+flat = true
 
 [node name="ClockTimer" type="Timer" parent="."]
 wait_time = 0.075
