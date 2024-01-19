@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://k04etqtgysnj"]
+[gd_scene load_steps=4 format=3 uid="uid://k04etqtgysnj"]
+
+[ext_resource type="Script" path="res://mainScene.gd" id="1_vvkln"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyh0u"]
 font_size = 32
@@ -7,6 +9,7 @@ font_size = 32
 font_size = 32
 
 [node name="MainScene" type="Node"]
+script = ExtResource("1_vvkln")
 
 [node name="Back" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -65,12 +68,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="dayAndTime" type="HBoxContainer" parent="."]
-visible = false
 anchors_preset = -1
 anchor_left = 0.333
-anchor_top = 0.0374074
+anchor_top = 0.106852
 anchor_right = 0.667
-anchor_bottom = 0.106778
+anchor_bottom = 0.185481
 offset_left = 0.384003
 offset_top = -0.240005
 offset_right = -0.384033
@@ -154,3 +156,5 @@ size_flags_vertical = 10
 theme_override_font_sizes/font_size = 24
 text = "INTO OBLIVION"
 flat = true
+
+[node name="clockTimer" type="Timer" parent="."]
