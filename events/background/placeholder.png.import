@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://ccbc8bydtj14j"
+path="res://.godot/imported/placeholder.png-53cf508ddab3c3cf015fc1a1b65f4548.image"
+
+[deps]
+
+source_file="res://events/background/placeholder.png"
+dest_files=["res://.godot/imported/placeholder.png-53cf508ddab3c3cf015fc1a1b65f4548.image"]
+
+[params]
+

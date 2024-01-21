@@ -1,24 +1,24 @@
 extends Node
-#глобальные флаги
 
-#Мой дурацкий подход
-var hour = 0
-var minute = 0
+#Параметры отвечающие за здоровье
+#когда они доходят до нуля, они начинают сильнее
+#понижать здоровье и предоставлять различные
+#минусы главному герою
+var endurance = 0
+var optimization = 0
+var sanity = 0
 
-#Подход Вани
-var timeSpeed = 1240.0
-var timeElapsed = 0.0
-
-var day = 0
+#Основный параметр, изначально не показывается
+#может быть виньеткой показывать
+#когда здоровье падает до нуля, то это конец игры
+#с обнулением дней до самого первого и сбросом сохранений
+var health = 0
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	timeElapsed += delta * timeSpeed
+	pass
 
-	var time = Time.get_time_dict_from_unix_time(timeElapsed)
-	#timeLabel.text = str(time["hour"]) + ':' + str(time["minute"])

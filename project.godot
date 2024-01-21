@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalStats="*res://globalStats.gd"
+TimeOfWorld="*res://timeOfWorld.tscn"
+EventsHolder="*res://eventsHolder.tscn"
 
 [rendering]
 

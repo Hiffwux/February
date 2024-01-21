@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dp6fjab7xyn6s"]
-
-[node name="ClockOfMadness" type="Node"]
-
-[node name="Timer" type="Timer" parent="."]
