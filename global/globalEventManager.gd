@@ -1,11 +1,7 @@
 extends Node
-var eventDictionary
+var eventDictionary: Dictionary
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	var eventJson = FileAccess.open("res://events/test_json.json",FileAccess.READ)
+	eventDictionary = JSON.parse_string(eventJson.get_as_text())
+	eventJson.close()

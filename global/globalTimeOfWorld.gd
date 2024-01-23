@@ -14,7 +14,6 @@ var second: float = 0
 var time_speed: float = 120
 
 func _process(delta):
-	print(delta)
 	second += delta * time_speed
 	if second >= 60:
 		second -= 60
