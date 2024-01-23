@@ -1,5 +1,5 @@
 extends Node
-class_name GlobalTime
+#class_name GlobalTime
 
 signal hour_changed
 signal minute_changed

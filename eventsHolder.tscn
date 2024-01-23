@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds6mwjae8om4p"]
-
-[ext_resource type="PackedScene" uid="uid://cy1vvlui5mn3j" path="res://events/event_1.tscn" id="1_vl24e"]
-
-[node name="EventsHolder" type="Node"]
-
-[node name="Event1" parent="." instance=ExtResource("1_vl24e")]
-visible = false

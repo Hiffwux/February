@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://k04etqtgysnj"]
 
 [ext_resource type="Script" path="res://mainScene.gd" id="1_vvkln"]
-[ext_resource type="PackedScene" uid="uid://ds6mwjae8om4p" path="res://eventsHolder.tscn" id="2_w8kj0"]
+[ext_resource type="Script" path="res://global/globalTimeOfWorld.gd" id="2_prvp2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyh0u"]
 font_size = 32
@@ -32,7 +32,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="EventsHolder" parent="." instance=ExtResource("2_w8kj0")]
+[node name="eventHolder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="title" type="HBoxContainer" parent="."]
 anchors_preset = -1
@@ -111,6 +117,12 @@ layout_mode = 2
 text = "##"
 label_settings = SubResource("LabelSettings_mnp6l")
 
+[node name="newTime" type="Label" parent="dayAndTime/HBoxContainer"]
+layout_mode = 2
+
+[node name="TimeOfWorld" type="Node" parent="dayAndTime/HBoxContainer/newTime"]
+script = ExtResource("2_prvp2")
+
 [node name="gameButtons" type="HBoxContainer" parent="."]
 visible = false
 anchors_preset = -1
@@ -163,15 +175,5 @@ theme_override_font_sizes/font_size = 24
 text = "В НЕБЫИТИЕ"
 flat = true
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = -1
-anchor_right = 0.091
-anchor_bottom = 0.049
-offset_right = -96.832
-offset_bottom = -23.752
-text = "debug scene"
-flat = true
-metadata/_edit_use_anchors_ = true
-
+[connection signal="minute_changed" from="dayAndTime/HBoxContainer/newTime/TimeOfWorld" to="." method="_onTimeOfWorldMinuteChanged"]
 [connection signal="pressed" from="menuButtons/awake" to="." method="_awakeStartGame"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

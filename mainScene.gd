@@ -2,38 +2,23 @@ extends Node
 
 @onready var dayAndTimeContainer = $dayAndTime
 @onready var menuButtonsContainer = $menuButtons
+@onready var dayLabel = $dayAndTime/HBoxContainer2/dayVar 
 @onready var hoursLabel = $dayAndTime/HBoxContainer/hoursVar
 @onready var minutesLabel = $dayAndTime/HBoxContainer/minutesVar
-@onready var eventsHolder = $"EventsHolder"
-
-var fateNumber = randi_range(1,3)
+@onready var newTimer = $dayAndTime/HBoxContainer/newTime
 
 func _ready():
-	#eventsHolder.
-	hoursLabel.text = str(TimeOfWorld.hours)
-	minutesLabel.text = str(TimeOfWorld.minutes)
-	dayAndTimeContainer.visible = false
+	pass
 
 func _process(delta):
-	_displayTimeOfWorld()
-
-func _displayTimeOfWorld():
-	if TimeOfWorld.minutes in range(10):
-		minutesLabel.text = "0" + str(TimeOfWorld.minutes)
-	else:
-		minutesLabel.text = str(TimeOfWorld.minutes)
-
-	if TimeOfWorld.hours in range(10):
-		hoursLabel.text = "0" + str(TimeOfWorld.hours)
-	else:
-		hoursLabel.text = str(TimeOfWorld.hours)
+	pass
 
 func _awakeStartGame():
-	TimeOfWorld.mainTimer.start()
+	GlobalTimeOfWorld.time_speed = 360
 	menuButtonsContainer.visible = false
 	dayAndTimeContainer.visible = true
 
-
-func _on_button_pressed():
-	eventsHolder.get_node("Event1").visible = true
-	
+func _onTimeOfWorldMinuteChanged():
+	dayLabel.text = str(GlobalTimeOfWorld.day)
+	hoursLabel.text = str(GlobalTimeOfWorld.hour)
+	minutesLabel.text =  str(GlobalTimeOfWorld.minute)
