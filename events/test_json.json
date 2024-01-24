@@ -1,6 +1,16 @@
 {
-	"obj" : {
-		"button" : {},
+	"event0" : {
+		"buttons" : [
+			{
+				"text": "cool baton"
+			},
+			{
+				"text": "cool buton"
+			},
+			{
+				"text": "cool beton"
+			}
+		],
 		"text": "test"
 	}
 }

@@ -11,24 +11,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6x00c")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="labelContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.111111
-anchor_top = 0.790123
-anchor_right = 0.888889
+anchor_left = 0.0833333
+anchor_top = 0.296296
+anchor_right = 0.916667
+anchor_bottom = 0.592593
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="buttonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0833333
+anchor_top = 0.740741
+anchor_right = 0.916667
 anchor_bottom = 0.888889
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.819444
-anchor_bottom = 0.703704
-offset_right = 8.0
-offset_bottom = 8.0
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

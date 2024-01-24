@@ -1,18 +1,47 @@
 extends Control
 
+@onready var labelContainer = $labelContainer
+@onready var buttonContainer = $buttonContainer
 
-# Called when the node enters the scene tree for the first time.
+#для облегчения
+#var dict = GlobalEventManager.eventDictionary
+var indexInt: int = -1
+var eventPickId: int = 0
+
 func _ready():
-	pass # Replace with function body.
+	#забираю текст
+	var eventLabel = Label.new()
+	eventLabel.text = GlobalEventManager.eventDictionary["event"+ str(eventPickId)]["text"]
+	labelContainer.add_child(eventLabel)
+	
+	#забираю кнопки
+	for button in GlobalEventManager.eventDictionary["event"+ str(eventPickId)]["buttons"]:
+		indexInt += 1
+		var eventButton = Button.new()
+		eventButton.text = button["label"]
+		buttonContainer.add_child(eventButton)
+		eventButton.pressed.connect(_applyChanges.bind(indexInt))
+		
+	
+	#for button in GlobalEventManager.eventDictionary["event0"]["buttons"]:
+		#var eventButton =  Button.new()
+		#eventButton.text = button["text"]
+		#$HBoxContainer.add_child(eventButton)
+		#eventButton.pressed.connect(_eventButtonPressed.bind(button["text"]))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func _applyChanges(index):
+	for stats in GlobalEventManager.eventDictionary["event"+ str(eventPickId)]["buttons"][index]["stat"]:
+		if (stats != null):
+			
+	
+			print('Success?')
+		else:
+			print("Stats are empty")
 
-
-func _on_button_pressed():
-	print(GlobalEventManager.eventDictionary)
-	var newChild = Label.new()
-	newChild.text = GlobalEventManager.eventDictionary["obj"]["text"]
-	add_child(newChild)
+func _endEvent():
+	print("END")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://k04etqtgysnj"]
+[gd_scene load_steps=8 format=3 uid="uid://k04etqtgysnj"]
 
 [ext_resource type="Script" path="res://mainScene.gd" id="1_vvkln"]
-[ext_resource type="Script" path="res://global/globalTimeOfWorld.gd" id="2_prvp2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyh0u"]
 font_size = 32
@@ -120,9 +119,6 @@ label_settings = SubResource("LabelSettings_mnp6l")
 [node name="newTime" type="Label" parent="dayAndTime/HBoxContainer"]
 layout_mode = 2
 
-[node name="TimeOfWorld" type="Node" parent="dayAndTime/HBoxContainer/newTime"]
-script = ExtResource("2_prvp2")
-
 [node name="gameButtons" type="HBoxContainer" parent="."]
 visible = false
 anchors_preset = -1
@@ -175,5 +171,4 @@ theme_override_font_sizes/font_size = 24
 text = "В НЕБЫИТИЕ"
 flat = true
 
-[connection signal="minute_changed" from="dayAndTime/HBoxContainer/newTime/TimeOfWorld" to="." method="_onTimeOfWorldMinuteChanged"]
 [connection signal="pressed" from="menuButtons/awake" to="." method="_awakeStartGame"]

@@ -1,0 +1,51 @@
+{
+	"notes" : "",
+	"event0" : {
+		"text" : "Test Event",
+		"buttons" : [
+			{
+				"label" : "Test Button 1",
+				"isFinal" : true,
+				"stat" : [
+					{
+						"nameOfstat" : ["endurance","sanity"],
+						"changes" : ["+= 10","+= 5"],
+					}
+				],
+				"pressedEvent" : "event0_1"
+			}
+		],
+		"roll" : 0,
+		"eventFailedRoll" : null,
+	},
+	"event0_1" : {
+		"text" : "Pressed event 1",
+		"buttons" : [
+			{
+				"label" : "OK",
+				"isFinal" : true,
+				"stat" : [],
+				"changes" : [],
+				"pressedEvent" : null
+			},
+		],
+		"roll" : 10,
+		"eventFailedRoll" : "event0_1failed",
+	},
+	"event0_1failed" : {
+		"text" : "Failed event 1",
+		"buttons" : [
+			{
+				"label" : "OK",
+				"isFinal" : true,
+				"stat" : [],
+				"changes" : [],
+				"pressedEvent" : null
+			},
+		],
+		"roll" : 10,
+		"eventFailedRoll" : {
+			
+		}
+	}
+}
