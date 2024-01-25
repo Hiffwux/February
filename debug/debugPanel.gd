@@ -33,3 +33,7 @@ func update_stats():
 
 func _on_close_requested():
 	visible = false
+
+
+func _on_restart_game_pressed():
+	pass

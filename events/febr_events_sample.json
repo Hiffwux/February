@@ -1,42 +1,32 @@
 {
 	"notes" : "",
-	"event0" : {
-		"text" : "Test Event",
+	"root" : {
+		"text" : "У меня расскалывается голова. Я чувствую как пульсирует в такт сердца мой левый висок.",
 		"buttons" : [
 			{
-				"label" : "Test Button 1",
+				"label" : "Перетерпеть",
+				"text": "Стало немного легче: мне удалось перетерпеть боль, но она все ещё есть",
 				"statChanges": {
-					"END" : 10,
-					"SAN" : -5
+					"END" : 1,
 				},
-				"pressedEvent" : "event0_1"
+			},
+			{
+				"label" : "Сдаться",
+				"text": "Я пытаюсь раствориться в этой боли. \nЯ хочу, чтобы она стала [color=red]частью меня[/color]\nЯ хочу, чтобы она пронизывала каждую клеточку моего тела\nЯ хочу [color=red]стать болью[/color]",
+				"statChanges": {
+					"HLT" : -5,
+				},
+				"nextEvent" : "giveUp"
 			}
 		],
-		"roll" : 0,
-		"eventFailedRoll" : null,
 	},
-	"event0_1" : {
-		"text" : "Pressed event 1",
+	"giveUp": {
+		"text": "У меня не получается. Боль не отпускает",
 		"buttons" : [
 			{
-				"label" : "OK",
-				"pressedEvent" : null
+				"label" : "Бросить этот бред",
+				"text": "Боль не отпустила...",
 			},
-		],
-		"roll" : 10,
-		"eventFailedRoll" : "event0_1failed",
-	},
-	"event0_1failed" : {
-		"text" : "Failed event 1",
-		"buttons" : [
-			{
-				"label" : "OK",
-				"pressedEvent" : null
-			},
-		],
-		"roll" : 10,
-		"eventFailedRoll" : {
-			
-		}
+		]
 	}
 }

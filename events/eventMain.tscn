@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6x00c")
 
-[node name="labelContainer" type="HBoxContainer" parent="."]
+[node name="label" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0833333
@@ -20,7 +20,7 @@ anchor_right = 0.916667
 anchor_bottom = 0.592593
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+bbcode_enabled = true
 metadata/_edit_use_anchors_ = true
 
 [node name="buttonContainer" type="HBoxContainer" parent="."]
@@ -34,3 +34,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="next" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+text = "Далее"
+
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

@@ -1,42 +1,47 @@
 extends Control
 
-@onready var labelContainer = $labelContainer
+@onready var label = $label
 @onready var buttonContainer = $buttonContainer
+@onready var nextButton = $next
 
-#для облегчения
-#var dict = GlobalEventManager.eventDictionary
-var eventPickId: int = 0
+var eventData:Dictionary
 
-func _ready():
-	#забираю текст
-	var eventLabel = Label.new()
-	eventLabel.text = GlobalEventManager.eventDictionary["event"+ str(eventPickId)]["text"]
-	labelContainer.add_child(eventLabel)
+var nextSubEvent
+
+func initEvent(event):
+	if event == null:
+		OS.alert("Конец")
+		return
+	label.text = event["text"]
 	
-	#забираю кнопки
-	for button in GlobalEventManager.eventDictionary["event"+ str(eventPickId)]["buttons"]:
+	for button in event["buttons"]:
 		var eventButton = Button.new()
 		eventButton.text = button["label"]
 		buttonContainer.add_child(eventButton)
-		eventButton.pressed.connect(_applyChanges.bind(button))
-		
-	
-	#for button in GlobalEventManager.eventDictionary["event0"]["buttons"]:
-		#var eventButton =  Button.new()
-		#eventButton.text = button["text"]
-		#$HBoxContainer.add_child(eventButton)
-		#eventButton.pressed.connect(_eventButtonPressed.bind(button["text"]))
+		eventButton.pressed.connect(_buttonPressed.bind(button))
 
+func _ready():
+	startEvent(GlobalEventManager.allEvents[0])
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
-func _applyChanges(button:Dictionary):
+func startEvent(event:Dictionary):
+	eventData = event
+	initEvent(eventData["root"])
+
+func _buttonPressed(button:Dictionary):
 	if button.has("statChanges"):
 		var stats:Dictionary = button["statChanges"]
 		for statName in stats.keys():
 			GlobalStats.add_stat_by_name(statName, stats[statName])
+	
+	for child in buttonContainer.get_children():
+		child.queue_free()
+	
+	var nextSubEventName = button.get("nextEvent", null)
+	nextSubEvent = eventData.get(nextSubEventName, null)
+	label.text = button["text"]
+	nextButton.visible = true
 
-func _endEvent():
-	print("END")
+
+func _on_next_pressed():
+	nextButton.visible = false
+	initEvent(nextSubEvent)
