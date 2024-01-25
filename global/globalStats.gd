@@ -4,15 +4,15 @@ extends Node
 #когда они доходят до нуля, они начинают сильнее
 #понижать здоровье и предоставлять различные
 #минусы главному герою
-var endurance = 0
-var optimization = 0
-var sanity = 0
+var endurance := 0
+var optimization := 0
+var sanity := 0
 
 #Основный параметр, изначально не показывается
 #может быть виньеткой показывать
 #когда здоровье падает до нуля, то это конец игры
 #с обнулением дней до самого первого и сбросом сохранений
-var health = 0
+var health := 0
 
 func _ready():
 	pass
@@ -20,3 +20,9 @@ func _ready():
 func _process(delta):
 	pass
 
+func add_stat_by_name(stat:String, value:int):
+	match stat:
+		"END": endurance += value
+		"OPT": optimization += value
+		"SAN": sanity += value
+		"HLT": health += value

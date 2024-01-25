@@ -29,4 +29,18 @@ func _process(delta):
 		hour-=24
 		day+=1
 		day_changed.emit()
-	
+
+func get_formatted_hour()->String:
+	if hour < 10:
+		return "0" + str(hour)
+	return str(hour)
+
+func get_formatted_day()->String:
+	if day < 10:
+		return "0" + str(day)
+	return str(day)
+
+func get_formatted_minute()->String:
+	if minute < 10:
+		return "0" + str(minute)
+	return str(minute)

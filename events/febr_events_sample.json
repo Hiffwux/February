@@ -5,13 +5,10 @@
 		"buttons" : [
 			{
 				"label" : "Test Button 1",
-				"isFinal" : true,
-				"stat" : [
-					{
-						"nameOfstat" : ["endurance","sanity"],
-						"changes" : ["+= 10","+= 5"],
-					}
-				],
+				"statChanges": {
+					"END" : 10,
+					"SAN" : -5
+				},
 				"pressedEvent" : "event0_1"
 			}
 		],
@@ -23,9 +20,6 @@
 		"buttons" : [
 			{
 				"label" : "OK",
-				"isFinal" : true,
-				"stat" : [],
-				"changes" : [],
 				"pressedEvent" : null
 			},
 		],
@@ -37,9 +31,6 @@
 		"buttons" : [
 			{
 				"label" : "OK",
-				"isFinal" : true,
-				"stat" : [],
-				"changes" : [],
 				"pressedEvent" : null
 			},
 		],

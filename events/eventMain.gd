@@ -5,7 +5,6 @@ extends Control
 
 #для облегчения
 #var dict = GlobalEventManager.eventDictionary
-var indexInt: int = -1
 var eventPickId: int = 0
 
 func _ready():
@@ -16,11 +15,10 @@ func _ready():
 	
 	#забираю кнопки
 	for button in GlobalEventManager.eventDictionary["event"+ str(eventPickId)]["buttons"]:
-		indexInt += 1
 		var eventButton = Button.new()
 		eventButton.text = button["label"]
 		buttonContainer.add_child(eventButton)
-		eventButton.pressed.connect(_applyChanges.bind(indexInt))
+		eventButton.pressed.connect(_applyChanges.bind(button))
 		
 	
 	#for button in GlobalEventManager.eventDictionary["event0"]["buttons"]:
@@ -34,14 +32,11 @@ func _ready():
 func _process(delta):
 	pass
 	
-func _applyChanges(index):
-	for stats in GlobalEventManager.eventDictionary["event"+ str(eventPickId)]["buttons"][index]["stat"]:
-		if (stats != null):
-			
-	
-			print('Success?')
-		else:
-			print("Stats are empty")
+func _applyChanges(button:Dictionary):
+	if button.has("statChanges"):
+		var stats:Dictionary = button["statChanges"]
+		for statName in stats.keys():
+			GlobalStats.add_stat_by_name(statName, stats[statName])
 
 func _endEvent():
 	print("END")

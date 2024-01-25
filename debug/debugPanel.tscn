@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://cotsrcucjbe6v"]
+
+[ext_resource type="Script" path="res://debug/debugPanel.gd" id="1_k84j4"]
+
+[node name="debugPanel" type="Window"]
+disable_3d = true
+title = "Debug"
+position = Vector2i(10, 36)
+size = Vector2i(200, 200)
+script = ExtResource("1_k84j4")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2
+
+[node name="timeLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Time:"
+
+[node name="time" type="Label" parent="GridContainer"]
+layout_mode = 2
+
+[node name="enduranceLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "endurance:"
+
+[node name="endurance" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="optimizationLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "optimization:"
+
+[node name="optimization" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="sanityLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "sanity:"
+
+[node name="sanity" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="healthLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "health:"
+
+[node name="health" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "restart game"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

@@ -8,17 +8,17 @@ extends Node
 @onready var newTimer = $dayAndTime/HBoxContainer/newTime
 
 func _ready():
-	pass
+	GlobalTimeOfWorld.minute_changed.connect(_onTimeOfWorldMinuteChanged)
 
 func _process(delta):
 	pass
 
 func _awakeStartGame():
-	GlobalTimeOfWorld.time_speed = 360
+	GlobalTimeOfWorld.time_speed = 1000
 	menuButtonsContainer.visible = false
 	dayAndTimeContainer.visible = true
 
 func _onTimeOfWorldMinuteChanged():
-	dayLabel.text = str(GlobalTimeOfWorld.day)
-	hoursLabel.text = str(GlobalTimeOfWorld.hour)
-	minutesLabel.text =  str(GlobalTimeOfWorld.minute)
+	dayLabel.text = GlobalTimeOfWorld.get_formatted_day()
+	hoursLabel.text = GlobalTimeOfWorld.get_formatted_hour()
+	minutesLabel.text =  GlobalTimeOfWorld.get_formatted_minute()
