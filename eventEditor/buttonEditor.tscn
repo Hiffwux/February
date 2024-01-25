@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://c23oabrorw36n"]
+
+[ext_resource type="Script" path="res://eventEditor/buttonEditor.gd" id="1_268ve"]
+
+[node name="ButtonEditor" type="Window"]
+position = Vector2i(100, 100)
+size = Vector2i(300, 300)
+script = ExtResource("1_268ve")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="labelLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Label:"
+
+[node name="label" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+placeholder_text = "empty"
+
+[node name="textLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "text:"
+
+[node name="text" type="TextEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+wrap_mode = 1
+
+[node name="enduranceLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "endurance:"
+
+[node name="endurance" type="SpinBox" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+min_value = -100.0
+
+[node name="optimizationLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "optimization:"
+
+[node name="optimization" type="SpinBox" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+min_value = -100.0
+
+[node name="sanityLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "sanity:"
+
+[node name="sanity" type="SpinBox" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+min_value = -100.0
+
+[node name="healthLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "health:"
+
+[node name="health" type="SpinBox" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+min_value = -100.0
+
+[node name="nextEventLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "next event:"
+
+[node name="nextEvent" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+editable = false
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="text_changed" from="GridContainer/label" to="." method="_on_label_text_changed"]

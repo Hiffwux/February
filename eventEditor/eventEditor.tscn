@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://7yulpyrirbfd"]
+
+[ext_resource type="Script" path="res://eventEditor/eventEditor.gd" id="1_mdwsq"]
+[ext_resource type="PackedScene" uid="uid://df6o5upbnjasl" path="res://eventEditor/eventNode.tscn" id="2_oaxu5"]
+
+[node name="EventEditor" type="GraphEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+right_disconnects = true
+script = ExtResource("1_mdwsq")
+
+[node name="EventNode" parent="." instance=ExtResource("2_oaxu5")]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 322.0
+offset_right = 417.0
+offset_bottom = 485.0
+mouse_filter = 1
+position_offset = Vector2(286, 322)
+
+[connection signal="connection_request" from="." to="." method="_on_connection_request"]
+[connection signal="disconnection_request" from="." to="." method="_on_disconnection_request"]
