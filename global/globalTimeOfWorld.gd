@@ -15,22 +15,28 @@ var time_speed: float = 120
 
 
 func _process(delta):
+	var is_minute_changed := false
+	var is_hour_changed := false
 	second += delta * time_speed
 	if second >= 60:
 		second -= 60
 		minute+=1
-		minute_changed.emit()
+		is_minute_changed = true
 	
 	if minute >= 60:
 		minute -= 60
 		hour+=1
-		hour_changed.emit()
+		is_hour_changed = true
 	
 	if hour >= 24:
 		hour-=24
 		day+=1
 		day_changed.emit()
-	print(minute)
+	
+	if is_minute_changed:
+		minute_changed.emit()
+	if is_hour_changed:
+		hour_changed.emit()
 
 func get_formatted_hour()->String:
 	if hour < 10:
