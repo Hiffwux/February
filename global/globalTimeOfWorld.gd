@@ -5,13 +5,14 @@ class_name TimeOfWorld
 signal hour_changed
 signal minute_changed
 signal day_changed
+#signal fate_pass_time
 
 var day: int = 1
 var hour: int = 0
 var minute: int = 0
 var second: float = 0
-
 var time_speed: float = 120
+
 
 func _process(delta):
 	second += delta * time_speed
@@ -29,6 +30,7 @@ func _process(delta):
 		hour-=24
 		day+=1
 		day_changed.emit()
+	print(minute)
 
 func get_formatted_hour()->String:
 	if hour < 10:
@@ -44,3 +46,18 @@ func get_formatted_minute()->String:
 	if minute < 10:
 		return "0" + str(minute)
 	return str(minute)
+
+func fateStartTimer(eventScene, fateTimer):
+	fateTimer.start(10)
+	fateTimer.timeout.connect(fateCheckEvent.bind(eventScene, fateTimer))
+	
+func fateCheckEvent(eventScene, fateTimer):
+	var fateEvent = randi_range(1, 10)
+	print(fateEvent)
+	#var fateTypeOfEvent
+	if (fateEvent <= 10):
+		fateTimer.stop()
+		time_speed = 0
+		eventScene.startEvent(GlobalEventManager.allEvents[0])
+	else:
+		pass

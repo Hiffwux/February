@@ -11,7 +11,9 @@ var nextSubEvent
 func initEvent(event):
 	if event == null:
 		OS.alert("Конец")
+		queue_free()
 		return
+		#self.queue_free()
 	label.text = event["text"]
 	
 	for button in event["buttons"]:
@@ -21,7 +23,8 @@ func initEvent(event):
 		eventButton.pressed.connect(_buttonPressed.bind(button))
 
 func _ready():
-	startEvent(GlobalEventManager.allEvents[0])
+	#startEvent(GlobalEventManager.allEvents[0])
+	pass
 
 func startEvent(event:Dictionary):
 	eventData = event
