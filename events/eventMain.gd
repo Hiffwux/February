@@ -10,10 +10,14 @@ var nextSubEvent
 
 func initEvent(event):
 	if event == null:
-		OS.alert("Конец")
+		
+		#var hideEvent = create_tween()
+		#hideEvent.tween_property(label, "modulate", Color(1, 1, 1, 0), .5)
+		#hideEvent.tween_property(buttonContainer, "modulate", Color(1, 1, 1, 0), .5)
+		
+		GlobalTimeOfWorld.time_speed = 360
 		queue_free()
 		return
-		#self.queue_free()
 	label.text = event["text"]
 	
 	for button in event["buttons"]:
@@ -23,10 +27,19 @@ func initEvent(event):
 		eventButton.pressed.connect(_buttonPressed.bind(button))
 
 func _ready():
+	label.modulate = Color(1, 1, 1, 0)
+	buttonContainer.modulate = Color(1, 1, 1, 0)
+	#nextButton.modulate = Color(1, 1, 1, 0)
 	#startEvent(GlobalEventManager.allEvents[0])
 	pass
 
 func startEvent(event:Dictionary):
+	
+	var showEvent = create_tween()
+	showEvent.tween_property(label, "modulate", Color(1, 1, 1, 1), .5)
+	showEvent.tween_property(buttonContainer, "modulate", Color(1, 1, 1, 1), .5)
+	#showEvent.tween_property(nextButton, "modulate", Color(1, 1, 1, 1), .5)
+	
 	eventData = event
 	initEvent(eventData["root"])
 

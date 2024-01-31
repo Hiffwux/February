@@ -52,18 +52,3 @@ func get_formatted_minute()->String:
 	if minute < 10:
 		return "0" + str(minute)
 	return str(minute)
-
-func fateStartTimer(eventScene, fateTimer):
-	fateTimer.start(10)
-	fateTimer.timeout.connect(fateCheckEvent.bind(eventScene, fateTimer))
-	
-func fateCheckEvent(eventScene, fateTimer):
-	var fateEvent = randi_range(1, 10)
-	print(fateEvent)
-	#var fateTypeOfEvent
-	if (fateEvent <= 10):
-		fateTimer.stop()
-		time_speed = 0
-		eventScene.startEvent(GlobalEventManager.allEvents[0])
-	else:
-		pass

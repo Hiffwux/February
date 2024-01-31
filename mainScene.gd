@@ -9,7 +9,7 @@ extends Node
 
 @onready var fateTimer = $Timer
 
-@onready var eventScene = $EventMain
+var eventSceneBase = preload("res://events/eventMain.tscn")
 
 func _ready():
 	GlobalTimeOfWorld.time_speed = 0
@@ -19,8 +19,7 @@ func _process(delta):
 	pass
 
 func _awakeStartGame():
-	GlobalTimeOfWorld.fateStartTimer(eventScene, fateTimer)
-	#eventScene.startEvent(GlobalEventManager.allEvents[0])
+	GlobalTimeOfWorld.minute_changed.connect(fateCheckEvent)
 	GlobalTimeOfWorld.time_speed = 360
 	menuButtonsContainer.visible = false
 	dayAndTimeContainer.visible = true
@@ -29,3 +28,19 @@ func _onTimeOfWorldMinuteChanged():
 	dayLabel.text = GlobalTimeOfWorld.get_formatted_day()
 	hoursLabel.text = GlobalTimeOfWorld.get_formatted_hour()
 	minutesLabel.text =  GlobalTimeOfWorld.get_formatted_minute()
+
+func fateCheckEvent():
+	
+	var eventScene = eventSceneBase.instantiate()
+	add_child(eventScene)
+	
+	#if randf() < 0.01:
+		#print("lol")
+	
+	var fateEvent = randf()
+	print(fateEvent)
+	if (fateEvent <= 0.01):
+		GlobalTimeOfWorld.time_speed = 0
+		eventScene.startEvent(GlobalEventManager.allEvents[0])
+	else:
+		pass

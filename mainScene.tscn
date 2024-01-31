@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://k04etqtgysnj"]
+[gd_scene load_steps=8 format=3 uid="uid://k04etqtgysnj"]
 
 [ext_resource type="Script" path="res://mainScene.gd" id="1_vvkln"]
-[ext_resource type="PackedScene" uid="uid://bk32wiclcaxi6" path="res://events/eventMain.tscn" id="2_lkvnt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyh0u"]
 font_size = 32
@@ -31,8 +30,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="EventMain" parent="." instance=ExtResource("2_lkvnt")]
 
 [node name="title" type="HBoxContainer" parent="."]
 anchors_preset = -1
@@ -167,5 +164,6 @@ text = "В НЕБЫИТИЕ"
 flat = true
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="pressed" from="menuButtons/awake" to="." method="_awakeStartGame"]
