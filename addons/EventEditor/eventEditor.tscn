@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://7yulpyrirbfd"]
+[gd_scene load_steps=2 format=3 uid="uid://7yulpyrirbfd"]
 
 [ext_resource type="Script" path="res://addons/EventEditor/eventEditor.gd" id="1_mdwsq"]
-[ext_resource type="PackedScene" uid="uid://df6o5upbnjasl" path="res://addons/EventEditor/eventNode.tscn" id="2_oaxu5"]
 
 [node name="EventEditor" type="GraphEdit"]
 anchors_preset = 15
@@ -13,15 +12,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
 script = ExtResource("1_mdwsq")
-
-[node name="EventNode" parent="." instance=ExtResource("2_oaxu5")]
-layout_mode = 0
-offset_left = 286.0
-offset_top = 322.0
-offset_right = 417.0
-offset_bottom = 485.0
-mouse_filter = 1
-position_offset = Vector2(286, 322)
 
 [connection signal="connection_request" from="." to="." method="_on_connection_request"]
 [connection signal="disconnection_request" from="." to="." method="_on_disconnection_request"]

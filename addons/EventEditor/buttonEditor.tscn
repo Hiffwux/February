@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://addons/EventEditor/buttonEditor.gd" id="1_kl53l"]
 
 [node name="ButtonEditor" type="Window"]
-position = Vector2i(100, 100)
+disable_3d = true
+title = "Button "
+initial_position = 4
 size = Vector2i(300, 300)
 script = ExtResource("1_kl53l")
 
@@ -43,3 +45,4 @@ editable = false
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="text_changed" from="GridContainer/label" to="." method="_on_label_text_changed"]
+[connection signal="text_changed" from="GridContainer/text" to="." method="_on_text_text_changed"]

@@ -1,22 +1,27 @@
 @tool
 extends Window
 
-signal data_updated(data:Dictionary)
+var buttonData:Dictionary
+var original_button:Button
 
-func _ready():
-	_on_label_text_changed("")
+func init(data:Dictionary, button:Button):
+	buttonData = data
+	original_button = button
+	
+	$GridContainer/label.text = data.get("label", "")
+	$GridContainer/text.text = data.get("text", "")
+	$GridContainer/nextEvent.text = data.get("nextEvent", "")
+
 
 func _on_label_text_changed(new_text):
+	buttonData["label"] = new_text
 	title = "Button " + new_text
-
-func construct_from_button(button:Dictionary):
-	pass
-
-func get_updated_data()->Dictionary:
-	return {
-		"label": $GridContainer/label.text
-		}
+	original_button.name = new_text
+	original_button.text = new_text
 
 func _on_close_requested():
-	data_updated.emit(get_updated_data())
 	queue_free()
+
+
+func _on_text_text_changed():
+	buttonData["text"] = $GridContainer/text.text
