@@ -1,3 +1,4 @@
+@tool
 extends GraphEdit
 
 func _ready():
@@ -14,6 +15,6 @@ func _on_disconnection_request(from_node, from_port, to_node, to_port):
 	disconnect_node(from_node, from_port, to_node, to_port)
 
 func _onAddButtonPressed():
-	var newEvent = preload("res://eventEditor/eventNode.tscn").instantiate()
+	var newEvent = preload("res://addons/EventEditor/eventNode.tscn").instantiate()
 	newEvent.position_offset = get_local_mouse_position() + Vector2(0, 100)
 	add_child(newEvent)

@@ -1,3 +1,4 @@
+@tool
 extends Window
 
 signal data_updated(data:Dictionary)

@@ -27,4 +27,5 @@ func add_stat_by_name(stat:String, value:int):
 		"END": endurance += value
 		"OPT": optimization += value
 		"SAN": sanity += value
+		"MON": money += value
 		"HLT": health += value

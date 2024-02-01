@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk32wiclcaxi6"]
+[gd_scene load_steps=3 format=3 uid="uid://bk32wiclcaxi6"]
 
 [ext_resource type="Script" path="res://events/eventMain.gd" id="1_6x00c"]
+[ext_resource type="Script" path="res://EvenRicherLabel.gd" id="2_fbqc7"]
 
 [node name="EventMain" type="Control"]
 layout_mode = 3
@@ -21,6 +22,7 @@ anchor_bottom = 0.592593
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
+script = ExtResource("2_fbqc7")
 metadata/_edit_use_anchors_ = true
 
 [node name="buttonContainer" type="HBoxContainer" parent="."]

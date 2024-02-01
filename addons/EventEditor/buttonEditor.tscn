@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c23oabrorw36n"]
 
-[ext_resource type="Script" path="res://eventEditor/buttonEditor.gd" id="1_268ve"]
+[ext_resource type="Script" path="res://addons/EventEditor/buttonEditor.gd" id="1_kl53l"]
 
 [node name="ButtonEditor" type="Window"]
 position = Vector2i(100, 100)
 size = Vector2i(300, 300)
-script = ExtResource("1_268ve")
+script = ExtResource("1_kl53l")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15
@@ -32,42 +32,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 wrap_mode = 1
-
-[node name="enduranceLabel" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "endurance:"
-
-[node name="endurance" type="SpinBox" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-min_value = -100.0
-
-[node name="optimizationLabel" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "optimization:"
-
-[node name="optimization" type="SpinBox" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-min_value = -100.0
-
-[node name="sanityLabel" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "sanity:"
-
-[node name="sanity" type="SpinBox" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-min_value = -100.0
-
-[node name="healthLabel" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "health:"
-
-[node name="health" type="SpinBox" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-min_value = -100.0
 
 [node name="nextEventLabel" type="Label" parent="GridContainer"]
 layout_mode = 2

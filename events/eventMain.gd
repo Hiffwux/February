@@ -18,7 +18,7 @@ func initEvent(event):
 		GlobalTimeOfWorld.time_speed = 360
 		queue_free()
 		return
-	label.text = event["text"]
+	label.set_text_with_custom_tags(event["text"])
 	
 	for button in event["buttons"]:
 		var eventButton = Button.new()
@@ -54,7 +54,7 @@ func _buttonPressed(button:Dictionary):
 	
 	var nextSubEventName = button.get("nextEvent", null)
 	nextSubEvent = eventData.get(nextSubEventName, null)
-	label.text = button["text"]
+	label.set_text_with_custom_tags(button["text"])
 	nextButton.visible = true
 
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://df6o5upbnjasl"]
 
-[ext_resource type="Script" path="res://eventEditor/eventNode.gd" id="1_gufru"]
+[ext_resource type="Script" path="res://addons/EventEditor/eventNode.gd" id="1_gufru"]
 
 [node name="EventNode" type="GraphNode"]
 offset_right = 131.0

@@ -1,5 +1,5 @@
+@tool
 extends GraphNode
-
 
 func _on_name_edit_text_changed(new_text):
 	title = new_text
@@ -15,7 +15,7 @@ func _on_add_button_pressed():
 	get_children()
 
 func _onButtonPressed(button:Button):
-	var buttonEditor = preload("res://eventEditor/buttonEditor.tscn").instantiate()
+	var buttonEditor = preload("res://addons/EventEditor/buttonEditor.tscn").instantiate()
 	buttonEditor.data_updated.connect(_onButtonDataUpdated.bind(button))
 	add_child(buttonEditor)
 
