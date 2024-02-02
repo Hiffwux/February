@@ -7,6 +7,9 @@ extends Node
 @onready var minutesLabel = $dayAndTime/HBoxContainer/minutesVar
 @onready var newTimer = $dayAndTime/HBoxContainer/newTime
 
+@onready var bgMorning = $backgrounds/morning
+@onready var bgSleep = $backgrounds/sleep
+
 @onready var fateTimer = $Timer
 
 var eventSceneBase = preload("res://events/eventMain.tscn")
@@ -16,7 +19,8 @@ func _ready():
 	GlobalTimeOfWorld.minute_changed.connect(_onTimeOfWorldMinuteChanged)
 
 func _process(delta):
-	pass
+	if (GlobalTimeOfWorld.hour == 23):
+		bgSleep.visible = true
 
 func _awakeStartGame():
 	GlobalTimeOfWorld.minute_changed.connect(fateCheckEvent)

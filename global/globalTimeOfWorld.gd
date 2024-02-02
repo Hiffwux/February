@@ -8,7 +8,7 @@ signal day_changed
 #signal fate_pass_time
 
 var day: int = 1
-var hour: int = 0
+var hour: int = 22
 var minute: int = 0
 var second: float = 0
 var time_speed: float = 120
