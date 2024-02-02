@@ -17,10 +17,10 @@ var eventSceneBase = preload("res://events/eventMain.tscn")
 func _ready():
 	GlobalTimeOfWorld.time_speed = 0
 	GlobalTimeOfWorld.minute_changed.connect(_onTimeOfWorldMinuteChanged)
+	GlobalTimeOfWorld.hour_changed.connect(_showBg)
 
 func _process(delta):
-	if (GlobalTimeOfWorld.hour == 23):
-		bgSleep.visible = true
+	pass
 
 func _awakeStartGame():
 	GlobalTimeOfWorld.minute_changed.connect(fateCheckEvent)
@@ -48,3 +48,9 @@ func fateCheckEvent():
 		eventScene.startEvent(GlobalEventManager.allEvents[0])
 	else:
 		pass
+
+func _showBg():
+	if (GlobalTimeOfWorld.hour == 23):
+		var showBgSleep = create_tween()
+		showBgSleep.tween_property(bgSleep, 'visible', true, 1)
+		print(showBgSleep.is_running())
